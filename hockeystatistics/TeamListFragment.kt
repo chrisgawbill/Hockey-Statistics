@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.hockeystatistics.dummy.TeamListAdapter
 
+// TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -22,6 +23,7 @@ class TeamListFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,23 +37,14 @@ class TeamListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_team_list, container, false)
+        var rootView =  inflater.inflate(R.layout.fragment_team_list, container, false)
+        var recyclerView: RecyclerView = rootView.findViewById(R.id.recyclerview)
+        //recyclerView.setBackgroundColor(Color.BLUE)
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.adapter = TeamListAdapter()
+        return rootView
     }
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val options = navOptions{
-            anim{
-                enter = R.anim.slide_in_right
-                exit = R.anim.slide_out_left
-                popEnter = R.anim.slide_in_left
-                popExit = R.anim.slide_out_right
-            }
-        }
-        val button = view.findViewById<Button>(R.id.teamList_button)
-        button?.setOnClickListener {
-           findNavController().navigate(R.id.teamFragment, null, options)
-       }
-    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

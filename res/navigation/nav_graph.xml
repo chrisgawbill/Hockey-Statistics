@@ -6,21 +6,6 @@
     app:startDestination="@id/teamListFragment">
 
     <fragment
-        android:id="@+id/teamListFragment"
-        android:name="com.example.hockeystatistics.TeamListFragment"
-        android:label="fragment_team_list"
-        tools:layout="@layout/fragment_team_list" >
-        <action
-            android:id="@+id/action_teamListFragment_to_teamFragment"
-            app:destination="@id/teamFragment" />
-        <action
-            android:id="@+id/action_teamListFragment_to_standingsFragment"
-            app:destination="@id/standingsFragment" />
-        <action
-            android:id="@+id/action_teamListFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/teamFragment"
         android:name="com.example.hockeystatistics.TeamFragment"
         android:label="fragment_team"
@@ -44,4 +29,19 @@
         android:name="com.example.hockeystatistics.PlayerFragment"
         android:label="fragment_player"
         tools:layout="@layout/fragment_player" />
+    <fragment
+        android:id="@+id/teamListFragment"
+        android:name="com.example.hockeystatistics.TeamListFragment"
+        android:label="fragment_team_list"
+        tools:layout="@layout/fragment_team_list" >
+        <action
+            android:id="@+id/action_teamListFragment_to_teamFragment"
+            app:destination="@id/teamFragment" />
+        <action
+            android:id="@+id/action_teamListFragment_to_standingsFragment"
+            app:destination="@id/standingsFragment" />
+        <action
+            android:id="@+id/action_teamListFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
 </navigation>
