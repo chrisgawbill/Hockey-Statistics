@@ -5,4 +5,7 @@
         -Design
         
     -Currently Working On
-        -Navigation (99% Done)
+        -Transferring Data from one fragment to another
+     
+     -Done
+        -Navigation
