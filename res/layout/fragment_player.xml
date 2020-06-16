@@ -2,18 +2,113 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PlayerFragment">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/playerName"
+        android:layout_width="402dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:textColor="#131313"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Zdeno Chara" />
+
+    <TextView
+        android:id="@+id/playerNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player Page"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#121111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerName"
+        tools:text="#21" />
+
+    <TextView
+        android:id="@+id/playerPosition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#191818"
+        app:layout_constraintStart_toEndOf="@+id/playerNumber"
+        app:layout_constraintTop_toBottomOf="@+id/playerName"
+        tools:text="Center" />
+
+    <TextView
+        android:id="@+id/playerAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#151515"
+        app:layout_constraintStart_toEndOf="@+id/playerPosition"
+        app:layout_constraintTop_toBottomOf="@+id/playerName"
+        tools:text="22 Years Old" />
+
+    <TextView
+        android:id="@+id/playerOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#171616"
+        app:layout_constraintStart_toEndOf="@+id/playerAge"
+        app:layout_constraintTop_toBottomOf="@+id/playerName"
+        tools:text="From Manitoba, CAN" />
+
+    <TextView
+        android:id="@+id/playerHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#121111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerNumber"
+        tools:text="6'1" />
+
+    <TextView
+        android:id="@+id/playerWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:textColor="#151414"
+        app:layout_constraintStart_toEndOf="@+id/playerHeight"
+        app:layout_constraintTop_toBottomOf="@+id/playerPosition"
+        tools:text="128 lbs" />
+
+    <TextView
+        android:id="@+id/playerStatsHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/stats"
+        android:textColor="#121111"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerHeight" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/player_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/playerStatsHeader" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

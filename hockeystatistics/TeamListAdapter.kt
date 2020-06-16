@@ -3,34 +3,35 @@ package com.example.hockeystatistics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.team_list_row.view.*
 
-class TeamListAdapter(var clickListener: onItemClickListener, var teamList: ArrayList<TeamObject>): RecyclerView.Adapter<CustomViewHolder>() {
+class TeamListAdapter(private var clickListener: OnTeamClickListener, private var teamList: ArrayList<TeamObject>): RecyclerView.Adapter<TeamListViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        val layoutInflater = LayoutInflater.from(parent?.context)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamListViewHolder {
+        val layoutInflater = LayoutInflater.from(parent.context)
         val cellForRow = layoutInflater.inflate(R.layout.team_list_row, parent, false)
-        return CustomViewHolder(cellForRow)
+        return TeamListViewHolder(cellForRow)
     }
 
     override fun getItemCount(): Int {
         return teamList.size
     }
 
-    override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        holder.initialize(teamList.get(position),clickListener)
+    override fun onBindViewHolder(holder: TeamListViewHolder, position: Int) {
+        holder.initialize(teamList[position],clickListener)
     }
 }
-class CustomViewHolder(val view: View): RecyclerView.ViewHolder(view){
-    var teamName = view.team_list_name
-    fun initialize(item: TeamObject ,action:onItemClickListener){
+class TeamListViewHolder(private val view: View): RecyclerView.ViewHolder(view){
+    private var teamName: TextView = view.team_list_name
+    fun initialize(item: TeamObject ,action:OnTeamClickListener){
         teamName.text = item.name
         view.setOnClickListener {
-            action.onItemClick(item, adapterPosition)
+            action.onTeamClick(item, adapterPosition)
         }
     }
 }
-interface onItemClickListener{
-    fun onItemClick(item: TeamObject, position: Int)
+interface OnTeamClickListener{
+    fun onTeamClick(item: TeamObject, position: Int)
 }

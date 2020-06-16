@@ -21,7 +21,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [TeamListFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TeamListFragment : Fragment(), onItemClickListener {
+class TeamListFragment : Fragment(), OnTeamClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -41,15 +41,14 @@ class TeamListFragment : Fragment(), onItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var rootView =  inflater.inflate(R.layout.fragment_team_list, container, false)
-        var recyclerView: RecyclerView = rootView.findViewById(R.id.recyclerview)
+        val rootView =  inflater.inflate(R.layout.fragment_team_list, container, false)
+        val recyclerView: RecyclerView = rootView.findViewById(R.id.recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = TeamListAdapter(this, teamList)
         recyclerView.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
-
         return rootView
     }
-    override fun onItemClick(item: TeamObject, position: Int){
+    override fun onTeamClick(item: TeamObject, position: Int) {
         val options = navOptions{
             anim{
                 enter = R.anim.slide_in_right
@@ -58,10 +57,10 @@ class TeamListFragment : Fragment(), onItemClickListener {
                 popExit = R.anim.slide_out_right
             }
         }
-        var action = TeamListFragmentDirections.actionTeamListFragmentToTeamFragment(item.name, item.id)
-        findNavController().navigate(action)
+        val action = TeamListFragmentDirections.actionTeamListFragmentToTeamFragment(item.name, item.id)
+        findNavController().navigate(action, options)
     }
-    fun createTeam(){
+    private fun createTeam(){
         teamList.add(0, TeamObject("Anaheim Ducks",24))
         teamList.add(1, TeamObject("Arizona Coyotes",53))
         teamList.add(2, TeamObject("Boston Bruins",6))
@@ -113,5 +112,4 @@ class TeamListFragment : Fragment(), onItemClickListener {
                 }
             }
     }
-
 }
