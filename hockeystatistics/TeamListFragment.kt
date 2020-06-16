@@ -25,6 +25,7 @@ class TeamListFragment : Fragment(), onItemClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var teamList = ArrayList<TeamObject>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +33,7 @@ class TeamListFragment : Fragment(), onItemClickListener {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        createTeam()
     }
 
     override fun onCreateView(
@@ -42,12 +44,12 @@ class TeamListFragment : Fragment(), onItemClickListener {
         var rootView =  inflater.inflate(R.layout.fragment_team_list, container, false)
         var recyclerView: RecyclerView = rootView.findViewById(R.id.recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = TeamListAdapter(this)
+        recyclerView.adapter = TeamListAdapter(this, teamList)
         recyclerView.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
 
         return rootView
     }
-    override fun onItemClick(position: Int){
+    override fun onItemClick(item: TeamObject, position: Int){
         val options = navOptions{
             anim{
                 enter = R.anim.slide_in_right
@@ -56,7 +58,41 @@ class TeamListFragment : Fragment(), onItemClickListener {
                 popExit = R.anim.slide_out_right
             }
         }
-        findNavController().navigate(R.id.teamFragment, null, options)
+        var action = TeamListFragmentDirections.actionTeamListFragmentToTeamFragment(item.name, item.id)
+        findNavController().navigate(action)
+    }
+    fun createTeam(){
+        teamList.add(0, TeamObject("Anaheim Ducks",24))
+        teamList.add(1, TeamObject("Arizona Coyotes",53))
+        teamList.add(2, TeamObject("Boston Bruins",6))
+        teamList.add(3, TeamObject("Buffalo Sabres",7))
+        teamList.add(4, TeamObject("Calgary Flames",20))
+        teamList.add(5, TeamObject( "Carolina Hurricanes",12))
+        teamList.add(6, TeamObject( "Chicago Blackhawks",16))
+        teamList.add(7, TeamObject("Colorado Avalanche",21))
+        teamList.add(8, TeamObject("Columbus Blue Jackets",29))
+        teamList.add(9, TeamObject("Dallas Stars",25))
+        teamList.add(10, TeamObject("Detroit Red Wings",17))
+        teamList.add(11, TeamObject("Edmonton Oilers",22))
+        teamList.add(12, TeamObject("Florida Panthers",13))
+        teamList.add(13, TeamObject("Los Angeles Kings",26))
+        teamList.add(14, TeamObject("Minnesota Wild",30))
+        teamList.add(15, TeamObject("Montreal Canadians",8))
+        teamList.add(16, TeamObject("Nashville Predators",18))
+        teamList.add(17, TeamObject("New Jersey Devils",1))
+        teamList.add(18, TeamObject("New York Islanders",2))
+        teamList.add(19, TeamObject("New York Rangers",3))
+        teamList.add(20, TeamObject("Ottawa Senators",9))
+        teamList.add(21, TeamObject("Philadelphia Flyers",4))
+        teamList.add(22, TeamObject("Pittsburgh Penguins",5))
+        teamList.add(23, TeamObject("San Jose Sharks",28))
+        teamList.add(24, TeamObject("St. Louis Blues",19))
+        teamList.add(25, TeamObject("Tampa Bay Lightning",14))
+        teamList.add(26, TeamObject("Toronto Maple Leafs",10))
+        teamList.add(27, TeamObject("Vancouver Canucks",23))
+        teamList.add(28, TeamObject("Vegas Golden Knights",54))
+        teamList.add(29, TeamObject("Washington Capitals",15))
+        teamList.add(30, TeamObject("Winnipeg Jets",52))
     }
     companion object {
         /**

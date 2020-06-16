@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,6 +23,9 @@ class TeamFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private var teamName:String = ""
+    private var teamID:Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -31,7 +33,6 @@ class TeamFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,6 +42,9 @@ class TeamFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val args = arguments?.let { TeamFragmentArgs.fromBundle(it) }
+        teamName = args?.teamName!!
+        teamID = args?.teamId!!
         val options = navOptions{
             anim{
                 enter = R.anim.slide_in_right
@@ -49,10 +53,8 @@ class TeamFragment : Fragment() {
                 popExit = R.anim.slide_out_right
             }
         }
-        val button = view.findViewById<Button>(R.id.teamPage_button)
-        button?.setOnClickListener {
-            findNavController().navigate(R.id.playerFragment, null, options)
-        }
+        var name:TextView = view.findViewById(R.id.name)
+        name.setText(teamName)
     }
     companion object {
         /**
