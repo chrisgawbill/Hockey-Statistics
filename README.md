@@ -4,8 +4,10 @@
         -Design
         
     -Currently Working On
-        -Transferring Data from one fragment to another
+        -Putting data on each page
+        -Finishing design of each page
      
      -Done
         -Navigation
         -Figured out API
+        -Transferring Data from one fragment to another
