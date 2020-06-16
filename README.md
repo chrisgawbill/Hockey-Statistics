@@ -1,7 +1,6 @@
 # Hockey-Statistics
 
     -Things to Work On
-        -API
         -Design
         
     -Currently Working On
@@ -9,3 +8,4 @@
      
      -Done
         -Navigation
+        -Figured out API
