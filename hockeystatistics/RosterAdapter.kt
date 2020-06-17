@@ -29,7 +29,7 @@ class RosterViewHolder(private val view: View): RecyclerView.ViewHolder(view){
     private var playerNumber: TextView = view.roster_list_number
     fun initialize(item: PlayerObject ,action:OnRosterClickListener){
         playerName.text = item.name
-        playerNumber.text = "#+${item.number}"
+        playerNumber.text = "#${item.number}"
         playerPostion.text = item.position
         view.setOnClickListener {
             action.onRosterClick(item, adapterPosition)

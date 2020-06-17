@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/divsion_name"
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@drawable/rounded_corners">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/division_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="#0C0C0C"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Metropolitan Division" />
+
+        <TextView
+            android:id="@+id/first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/_1"
+            android:textColor="#151515"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/division_name" />
+
+        <TextView
+            android:id="@+id/first_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#0E0E0E"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/first"
+            app:layout_constraintTop_toBottomOf="@+id/division_name"
+            tools:text="Washington Capitals" />
+
+        <TextView
+            android:id="@+id/second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/_2"
+            android:textColor="#0B0A0A"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first" />
+
+        <TextView
+            android:id="@+id/second_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#101010"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/second"
+            app:layout_constraintTop_toBottomOf="@+id/first_place"
+            tools:text="Philadelphia Flyers" />
+
+        <TextView
+            android:id="@+id/third"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/_3"
+            android:textColor="#121111"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/second" />
+
+        <TextView
+            android:id="@+id/fourth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/_4"
+            android:textColor="#0C0C0C"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/third" />
+
+        <TextView
+            android:id="@+id/fifth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="190dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/_5"
+            android:textColor="#131313"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/first"
+            app:layout_constraintTop_toBottomOf="@+id/division_name" />
+
+        <TextView
+            android:id="@+id/sixth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="190dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/_6"
+            android:textColor="#090909"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/second"
+            app:layout_constraintTop_toBottomOf="@+id/fifth" />
+
+        <TextView
+            android:id="@+id/seventh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="190dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/_7"
+            android:textColor="#121111"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/third"
+            app:layout_constraintTop_toBottomOf="@+id/sixth" />
+
+        <TextView
+            android:id="@+id/eighth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="190dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/_8"
+            android:textColor="#0E0E0E"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/fourth"
+            app:layout_constraintTop_toBottomOf="@+id/seventh" />
+
+        <TextView
+            android:id="@+id/third_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#0B0A0A"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/third"
+            app:layout_constraintTop_toBottomOf="@+id/second_place"
+            tools:text="Columbus Blue Jackets (100)" />
+
+        <TextView
+            android:id="@+id/fourth_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#121111"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/fourth"
+            app:layout_constraintTop_toBottomOf="@+id/third_place"
+            tools:text="Pittsburgh Penguins" />
+
+        <TextView
+            android:id="@+id/fifth_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#0E0E0E"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/fifth"
+            app:layout_constraintTop_toBottomOf="@+id/division_name"
+            tools:text="Columbus Blue Jackets (100)" />
+
+        <TextView
+            android:id="@+id/sixth_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#151515"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/sixth"
+            app:layout_constraintTop_toBottomOf="@+id/fifth_place"
+            tools:text="New York Rangers (125)" />
+
+        <TextView
+            android:id="@+id/seventh_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/new_york_islanders_125"
+            android:textColor="#0E0E0E"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/seventh"
+            app:layout_constraintTop_toBottomOf="@+id/sixth_place" />
+
+        <TextView
+            android:id="@+id/eighth_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#0E0E0E"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/eighth"
+            app:layout_constraintTop_toBottomOf="@+id/seventh_place"
+            tools:text="Columbus Blue Jackets" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+

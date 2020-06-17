@@ -13,7 +13,6 @@ import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
 
-// TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -24,7 +23,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class PlayerFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
     private var param2: String? = null
     private var playerName:String = ""
@@ -45,21 +44,22 @@ class PlayerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        /*Inflate the layout for this fragment*/
         return inflater.inflate(R.layout.fragment_player, container, false)
     }
+    /*Retrieves the information that was passed to this fragment*/
+    /*It then calls the two APIs required to get the info I want to display*/
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val args =  arguments?.let { PlayerFragmentArgs.fromBundle(it) }
         playerName = args?.playerName!!
         playerID = args.playerID
         playerPosition = args.playerPosition
         playerNumber = args.playerNum
-        getData()
-    }
-    private fun getData(){
         runBasicPlayerAPI("https://statsapi.web.nhl.com/api/v1/people/$playerID")
         runAdvancedPlayerAPI("https://statsapi.web.nhl.com/api/v1/people/$playerID/stats?stats=statsSingleSeason&season=20192020")
     }
+    /*Calls the API to get the basic info about a player(weight, height, age, position, origin)*/
+    /*The program puts the data it gets in this function into TextViews*/
     private fun runBasicPlayerAPI(url:String){
         val request = Request.Builder()
             .url(url)
@@ -88,6 +88,7 @@ class PlayerFragment : Fragment() {
             }
         })
     }
+    /*Calls the API to get the advanced info about a player, actual hockey stats*/
     private fun runAdvancedPlayerAPI(url:String){
         val request = Request.Builder()
             .url(url)
@@ -95,6 +96,7 @@ class PlayerFragment : Fragment() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {}
             override fun onResponse(call: Call, response: Response) {
+                /*This stores Stat Objects which requires a stat name and stat value*/
                 val statList = ArrayList<StatObject>()
                 val message = response.body()?.string()
                 val reader = JSONObject(message)
@@ -178,7 +180,7 @@ class PlayerFragment : Fragment() {
          * @param param2 Parameter 2.
          * @return A new instance of fragment PlayerFragment.
          */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             PlayerFragment().apply {
