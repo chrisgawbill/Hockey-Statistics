@@ -46,6 +46,7 @@ class TeamFragment : Fragment(), OnRosterClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        activity?.setTitle("Team Page")
         return inflater.inflate(R.layout.fragment_team, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,7 +54,7 @@ class TeamFragment : Fragment(), OnRosterClickListener {
         val args = arguments?.let { TeamFragmentArgs.fromBundle(it) }
         teamName = args?.teamName!!
         teamID = args.teamId
-
+        activity?.setTitle("Team Page")
         getData(view)
 
     }

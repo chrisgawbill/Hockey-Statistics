@@ -24,10 +24,13 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/bottomColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_bottom_nav"
-        app:itemBackground="@color/cardview_light_background"
+        app:itemBackground="?attr/bottomColor"
+        app:itemIconTint="?attr/textColor"
+        app:itemTextColor="?attr/textColor"
         tools:ignore="PrivateResource" />
 </androidx.constraintlayout.widget.ConstraintLayout>

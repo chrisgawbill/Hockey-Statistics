@@ -55,6 +55,7 @@ class PlayerFragment : Fragment() {
         playerID = args.playerID
         playerPosition = args.playerPosition
         playerNumber = args.playerNum
+        activity?.setTitle("Player Page")
         runBasicPlayerAPI("https://statsapi.web.nhl.com/api/v1/people/$playerID")
         runAdvancedPlayerAPI("https://statsapi.web.nhl.com/api/v1/people/$playerID/stats?stats=statsSingleSeason&season=20192020")
     }

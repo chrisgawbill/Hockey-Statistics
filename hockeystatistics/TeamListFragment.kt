@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-// TODO: Rename parameter arguments, choose names that match
+
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -22,7 +22,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class TeamListFragment : Fragment(), OnTeamClickListener {
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
     private var param2: String? = null
     private var teamList = ArrayList<TeamObject>()
@@ -46,6 +46,7 @@ class TeamListFragment : Fragment(), OnTeamClickListener {
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = TeamListAdapter(this, teamList)
         recyclerView.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
+        activity?.setTitle("Team List")
         return rootView
     }
     override fun onTeamClick(item: TeamObject, position: Int) {
@@ -102,7 +103,7 @@ class TeamListFragment : Fragment(), OnTeamClickListener {
          * @param param2 Parameter 2.
          * @return A new instance of fragment TeamListFragment.
          */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             TeamListFragment().apply {

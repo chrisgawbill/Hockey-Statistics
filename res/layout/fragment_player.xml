@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bgColor"
     tools:context=".PlayerFragment">
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_height="39dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:textColor="#131313"
+        android:textColor="?attr/textColor"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="12dp"
-        android:textColor="#121111"
+        android:textColor="?attr/textColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playerName"
         tools:text="#21" />
@@ -36,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
-        android:textColor="#191818"
+        android:textColor="?attr/textColor"
         app:layout_constraintStart_toEndOf="@+id/playerNumber"
         app:layout_constraintTop_toBottomOf="@+id/playerName"
         tools:text="Center" />
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
-        android:textColor="#151515"
+        android:textColor="?attr/textColor"
         app:layout_constraintStart_toEndOf="@+id/playerPosition"
         app:layout_constraintTop_toBottomOf="@+id/playerName"
         tools:text="22 Years Old" />
@@ -58,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
-        android:textColor="#171616"
+        android:textColor="?attr/textColor"
         app:layout_constraintStart_toEndOf="@+id/playerAge"
         app:layout_constraintTop_toBottomOf="@+id/playerName"
         tools:text="From Manitoba, CAN" />
@@ -69,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="12dp"
-        android:textColor="#121111"
+        android:textColor="?attr/textColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playerNumber"
         tools:text="6'1" />
@@ -80,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
-        android:textColor="#151414"
+        android:textColor="?attr/textColor"
         app:layout_constraintStart_toEndOf="@+id/playerHeight"
         app:layout_constraintTop_toBottomOf="@+id/playerPosition"
         tools:text="128 lbs" />
@@ -92,7 +93,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:text="@string/stats"
-        android:textColor="#121111"
+        android:textColor="?attr/textColor"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +106,8 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="56dp"
+        android:background="?attr/bgColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
