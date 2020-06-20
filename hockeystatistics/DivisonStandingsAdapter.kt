@@ -44,9 +44,12 @@ class StandingViewHolder(private val view: View): RecyclerView.ViewHolder(view){
                 5-> teamPlace = view.sixth_place
                 6-> teamPlace = view.seventh_place
                 7-> teamPlace = view.eighth_place
-                else-> teamPlace = view.eighth
             }
             teamPlace.text = "$name ($points)"
+        }
+        if(item.standings.size == 7){
+            teamPlace = view.eighth
+            teamPlace.visibility = View.INVISIBLE
         }
     }
 }
