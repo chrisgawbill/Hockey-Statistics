@@ -57,22 +57,22 @@
         android:id="@+id/playerOrigin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="12dp"
         android:textColor="?attr/textColor"
-        app:layout_constraintStart_toEndOf="@+id/playerAge"
-        app:layout_constraintTop_toBottomOf="@+id/playerName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerNumber"
         tools:text="From Manitoba, CAN" />
 
     <TextView
         android:id="@+id/playerHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:textColor="?attr/textColor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playerNumber"
+        app:layout_constraintStart_toEndOf="@+id/playerAge"
+        app:layout_constraintTop_toBottomOf="@+id/playerName"
         tools:text="6'1" />
 
     <TextView
@@ -83,7 +83,7 @@
         android:layout_marginTop="12dp"
         android:textColor="?attr/textColor"
         app:layout_constraintStart_toEndOf="@+id/playerHeight"
-        app:layout_constraintTop_toBottomOf="@+id/playerPosition"
+        app:layout_constraintTop_toBottomOf="@+id/playerName"
         tools:text="128 lbs" />
 
     <TextView
@@ -91,13 +91,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         android:text="@string/stats"
         android:textColor="?attr/textColor"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playerHeight" />
+        app:layout_constraintTop_toBottomOf="@+id/playerOrigin" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/player_recycler_view"

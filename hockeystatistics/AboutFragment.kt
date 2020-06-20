@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 // TODO: Rename parameter arguments, choose names that match
@@ -30,12 +31,14 @@ class AboutFragment : Fragment() {
         activity?.setTitle("About")
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_about, container, false)
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        var about: TextView = view?.findViewById(R.id.about_text)!!
+        about.text = ("Please Note: This app is not endorsed by or affiliated with the National Hockey League. Any trademarks used in the app are done so under 'fair use' with the sole purpose of identifying the respective entitites, " +
+                "and remain the property of their respective owners")
     }
 
     companion object {

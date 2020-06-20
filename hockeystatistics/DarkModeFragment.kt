@@ -1,14 +1,15 @@
 package com.example.hockeystatistics
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_dark_mode.*
 
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,11 +21,10 @@ private const val ARG_PARAM2 = "param2"
  * Use the [DarkModeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class DarkModeFragment : Fragment(), OnDarkClickListener {
+class DarkModeFragment : Fragment() {
 
     private var param1: String? = null
     private var param2: String? = null
-    private var darkList:ArrayList<String> = arrayListOf("Follow System Theme", "Light Theme", "Dark Theme")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,14 +40,37 @@ class DarkModeFragment : Fragment(), OnDarkClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val rootView =  inflater.inflate(R.layout.fragment_dark_mode, container, false)
-        val recyclerView: RecyclerView = rootView.findViewById(R.id.dark_mode_recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = DarkModeAdapter(this@DarkModeFragment, darkList)
-        recyclerView.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
-        return rootView
+        return inflater.inflate(R.layout.fragment_dark_mode, container, false)
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        var dark  = view.findViewById<RadioButton>(R.id.dark_theme)
+        var light = view.findViewById<RadioButton>(R.id.light_theme)
+        var system = view.findViewById<RadioButton>(R.id.system_default)
+        val pref: SharedPreferences = activity?.getPreferences(Context.MODE_PRIVATE)!!
+        val editor: SharedPreferences.Editor = pref.edit()
 
+        when(pref.getInt("themeValue", 0)){
+            AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM -> system_default.isChecked = true
+            AppCompatDelegate.MODE_NIGHT_NO -> light_theme.isChecked = true
+            AppCompatDelegate.MODE_NIGHT_YES ->  dark_theme.isChecked = true
+            else -> system_default.isChecked = true
+        }
+        dark.setOnClickListener {
+            editor.putInt("themeValue", AppCompatDelegate.MODE_NIGHT_YES)
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            editor.commit()
+        }
+        light.setOnClickListener {
+            editor.putInt("themeValue", AppCompatDelegate.MODE_NIGHT_NO)
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            editor.commit()
+        }
+        system_default.setOnClickListener{
+            editor.putInt("themeValue", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            editor.commit()
+        }
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -67,20 +90,26 @@ class DarkModeFragment : Fragment(), OnDarkClickListener {
                 }
             }
     }
-
+    /*
     override fun onDarkClick(item: String, position: Int) {
+        val pref: SharedPreferences = activity?.getPreferences(Context.MODE_PRIVATE)!!
+        val editor: SharedPreferences.Editor = pref.edit()
         when(item){
             "Dark Theme"->{
-                activity?.setTheme(R.style.DarkTheme)
-                AppCompatDelegate.MODE_NIGHT_YES
+                editor.putInt("themeValue", AppCompatDelegate.MODE_NIGHT_YES)
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             }
             "Light Theme"->{
-                activity?.setTheme(R.style.AppTheme)
-                AppCompatDelegate.MODE_NIGHT_NO
+                editor.putInt("themeValue", AppCompatDelegate.MODE_NIGHT_NO)
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
             else->{
-                AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                editor.putInt("themeValue", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             }
         }
+        editor.commit()
     }
+    */
+
 }

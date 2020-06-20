@@ -78,8 +78,8 @@ class SettingsFragment : Fragment(), OnSettingClickListener {
             }
         }
         when(item){
-            "Dark Mode"->findNavController().navigate(R.id.darkModeFragment)
-            else->findNavController().navigate(R.id.aboutFragment)
+            "Dark Mode"->findNavController().navigate(R.id.darkModeFragment, null, options)
+            else->findNavController().navigate(R.id.aboutFragment, null, options)
         }
     }
 }

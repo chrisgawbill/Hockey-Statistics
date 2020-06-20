@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/bgColor"
-    tools:context=".DarkModeFragment">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/dark_mode_recycler_view"
+<RadioGroup
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/bgColor">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RadioButton
+        android:id="@+id/system_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/system_default"
+        android:textSize="15sp"
+        android:textColor="?attr/textColor"
+        android:layout_margin="10dp"/>
+
+    <RadioButton
+        android:id="@+id/light_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/light_theme"
+        android:textSize="15sp"
+        android:textColor="?attr/textColor"
+        android:layout_margin="10dp"/>
+
+    <RadioButton
+        android:id="@+id/dark_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dark_theme"
+        android:textSize="15sp"
+        android:textColor="?attr/textColor"
+        android:layout_margin="10dp"/>
+</RadioGroup>
