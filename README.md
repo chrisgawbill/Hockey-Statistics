@@ -1,10 +1,10 @@
 # Hockey-Statistics
 
     -Things to Work On
-       
+       -Release it on Google Play Store
         
     -Currently Working On
-        -Design
+
      
      -Done
         -Navigation
