@@ -1,10 +1,12 @@
 # Hockey-Statistics
-
+    -Google Play: https://play.google.com/store/apps/details?id=com.hockeystatistics
+    -Galaxy Store
+    
     -Things to Work On
 
         
     -Currently Working On
-        -Release it on Google Play Store, Galaxy Store (Waiting for Approval)
+
      
      -Done
         -Navigation
