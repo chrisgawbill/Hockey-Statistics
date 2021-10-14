@@ -1,5 +1,5 @@
 # Hockey-Statistics
-    - Working on a rewrite
+    -Working on a rewrite (New UI, Rewrite API calls, Add new Features (draft history, prospects, playoff bracket)
     -Google Play: https://play.google.com/store/apps/details?id=com.hockeystatistics
     -Galaxy Store
     
